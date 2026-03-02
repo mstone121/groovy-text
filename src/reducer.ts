@@ -50,7 +50,7 @@ export default function appReducer(
     case Action.SET_FONT:
       return {
         ...state,
-        textName: action.payload,
+        fontName: action.payload,
       };
 
     case Action.RENAME:

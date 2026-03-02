@@ -2,7 +2,7 @@ export type AppState = {
 	id: string;
 	label: string;
 	backgroundColor: Color;
-	textName: string;
+	fontName: string;
 	layers: Layer[];
 };
 
