@@ -1,6 +1,6 @@
 export type AppState = {
 	id: string;
-	label: string;
+	displayText: string;
 	backgroundColor: Color;
 	fontName: string;
 	layers: Layer[];
@@ -21,7 +21,7 @@ export enum Action {
 	UPDATE_LAYER,
 	SET_BACKGROUND_COLOR,
 	SET_FONT,
-	RENAME,
+	SET_DISPLAY_TEXT,
 }
 
 export type ActionWithPayload =
@@ -34,4 +34,4 @@ export type ActionWithPayload =
 	  }
 	| { type: Action.SET_BACKGROUND_COLOR; payload: Color }
 	| { type: Action.SET_FONT; payload: string }
-	| { type: Action.RENAME; payload: string };
+	| { type: Action.SET_DISPLAY_TEXT; payload: string };

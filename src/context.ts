@@ -16,7 +16,7 @@ export const useAppDispatch = () => useContext(AppDispatchContext);
 export function getDefaultState(): AppState {
   return {
     id: uuid(),
-    label: "Untitled",
+    displayText: "Groovy Text",
     backgroundColor: "#ffffff",
     fontName: "sans-serif",
     layers: [{ id: uuid(), color: "#000000", thickness: 1 }],

@@ -53,10 +53,10 @@ export default function appReducer(
         fontName: action.payload,
       };
 
-    case Action.RENAME:
+    case Action.SET_DISPLAY_TEXT:
       return {
         ...state,
-        label: action.payload,
+        displayText: action.payload,
       };
   }
 }
