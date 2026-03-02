@@ -1,5 +1,6 @@
 import { arrayMove } from "@dnd-kit/sortable";
-import { Action, type ActionWithPayload, type AppState } from "./types";
+
+import { Action, type ActionWithPayload, type AppState } from "@types";
 
 export default function appReducer(
   state: AppState,

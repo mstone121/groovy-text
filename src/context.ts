@@ -1,7 +1,7 @@
 import { type ActionDispatch, createContext, useContext } from "react";
 import { v4 as uuid } from "uuid";
 
-import type { ActionWithPayload, AppState } from "./types";
+import type { ActionWithPayload, AppState } from "@types";
 
 export const AppStateContext = createContext<AppState>(getDefaultState());
 

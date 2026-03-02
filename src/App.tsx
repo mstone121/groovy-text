@@ -3,13 +3,12 @@ import { AppBar, Container, CssBaseline } from "@mui/material";
 
 import Theme from "./Theme";
 
-import {
-	AppDispatchContext,
-	AppStateContext,
-	getDefaultState,
-} from "./context";
+import { AppDispatchContext, AppStateContext, getDefaultState } from "@context";
 
 import appReducer from "./reducer";
+
+import Editor from "@components/editor";
+import Renderer from "@components/renderer";
 
 function App() {
 	return (
@@ -22,7 +21,10 @@ function App() {
 				Groovy Text
 			</AppBar>
 			<Container maxWidth="md" sx={{ marginTop: 4 }}>
-				<AppContext>Groovy.</AppContext>
+				<AppContext>
+					<Editor />
+					<Renderer />
+				</AppContext>
 			</Container>
 		</Theme>
 	);
