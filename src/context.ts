@@ -1,7 +1,7 @@
 import { type ActionDispatch, createContext, useContext } from "react";
 import { v4 as uuid } from "uuid";
 
-import type { ActionWithPayload, AppState } from "@types";
+import type { ActionWithPayload, AppState } from "./types";
 
 export const AppStateContext = createContext<AppState>(getDefaultState());
 
@@ -18,7 +18,7 @@ export function getDefaultState(): AppState {
     id: uuid(),
     label: "Untitled",
     backgroundColor: "#ffffff",
-    textName: "sans-serif",
+    fontName: "sans-serif",
     layers: [{ id: uuid(), color: "#000000", thickness: 1 }],
   };
 }

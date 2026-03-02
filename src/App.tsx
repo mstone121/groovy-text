@@ -3,12 +3,16 @@ import { AppBar, Container, CssBaseline } from "@mui/material";
 
 import Theme from "./Theme";
 
-import { AppDispatchContext, AppStateContext, getDefaultState } from "@context";
+import {
+	AppDispatchContext,
+	AppStateContext,
+	getDefaultState,
+} from "./context";
 
 import appReducer from "./reducer";
 
-import Editor from "@components/editor";
-import Renderer from "@components/renderer";
+import Editor from "./components/editor";
+import Renderer from "./components/renderer";
 
 function App() {
 	return (
