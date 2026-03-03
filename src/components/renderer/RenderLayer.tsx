@@ -7,12 +7,16 @@ export default function RenderLayer({
 }: {
 	layer: Layer & { cumulativeThickness: number };
 }) {
-	const { displayText, fontName } = useAppState();
+	const {
+		meta: { displayText, fontName, fontSize, fontSpacing },
+	} = useAppState();
 
 	return (
 		<p
 			style={{
 				fontFamily: fontName,
+				fontSize: `${fontSize}px`,
+				letterSpacing: `${fontSpacing}px`,
 				color: layer.color,
 				position: "absolute",
 				top: "30%",

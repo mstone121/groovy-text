@@ -16,9 +16,14 @@ export const useAppDispatch = () => useContext(AppDispatchContext);
 export function getDefaultState(): AppState {
   return {
     id: uuid(),
-    displayText: "Groovy Text",
-    backgroundColor: "#ffffff",
-    fontName: "sans-serif",
+    meta: {
+      displayText: "Groovy Text",
+      backgroundColor: "#ffffff",
+      baseColor: "#000000",
+      fontName: "sans-serif",
+      fontSize: 100,
+      fontSpacing: 0,
+    },
     layers: [{ id: uuid(), color: "#000000", thickness: 1 }],
   };
 }

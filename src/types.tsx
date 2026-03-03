@@ -1,9 +1,16 @@
 export type AppState = {
 	id: string;
+	meta: Metadata;
+	layers: Layer[];
+};
+
+export type Metadata = {
 	displayText: string;
+	baseColor: Color;
 	backgroundColor: Color;
 	fontName: string;
-	layers: Layer[];
+	fontSize: number;
+	fontSpacing: number;
 };
 
 export type Layer = {
@@ -19,9 +26,7 @@ export enum Action {
 	REMOVE_LAYER,
 	MOVE_LAYER,
 	UPDATE_LAYER,
-	SET_BACKGROUND_COLOR,
-	SET_FONT,
-	SET_DISPLAY_TEXT,
+	UPDATE_META,
 }
 
 export type ActionWithPayload =
@@ -32,6 +37,7 @@ export type ActionWithPayload =
 			type: Action.UPDATE_LAYER;
 			payload: { id: string; update: Partial<Layer> };
 	  }
-	| { type: Action.SET_BACKGROUND_COLOR; payload: Color }
-	| { type: Action.SET_FONT; payload: string }
-	| { type: Action.SET_DISPLAY_TEXT; payload: string };
+	| {
+			type: Action.UPDATE_META;
+			payload: Partial<Metadata>;
+	  };

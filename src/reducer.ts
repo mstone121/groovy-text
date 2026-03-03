@@ -41,22 +41,11 @@ export default function appReducer(
       };
     }
 
-    case Action.SET_BACKGROUND_COLOR:
+    case Action.UPDATE_META: {
       return {
         ...state,
-        backgroundColor: action.payload,
+        meta: { ...state.meta, ...action.payload },
       };
-
-    case Action.SET_FONT:
-      return {
-        ...state,
-        fontName: action.payload,
-      };
-
-    case Action.SET_DISPLAY_TEXT:
-      return {
-        ...state,
-        displayText: action.payload,
-      };
+    }
   }
 }

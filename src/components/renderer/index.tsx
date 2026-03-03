@@ -5,7 +5,10 @@ import RenderLayer from "./RenderLayer";
 import type { Layer } from "../../types";
 
 export default function Renderer() {
-	const { backgroundColor, layers } = useAppState();
+	const {
+		meta: { backgroundColor },
+		layers,
+	} = useAppState();
 
 	const layersWithCumulativeThickness = layers
 		.map(getCumulativeThickness)
