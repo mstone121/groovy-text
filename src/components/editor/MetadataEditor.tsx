@@ -8,7 +8,7 @@ import { Action } from "../../types";
 
 const COMMON_INPUT_PROPS: TextFieldProps = {
 	size: "small",
-	style: { minWidth: 300 },
+	style: { minWidth: 275 },
 };
 
 export default function MetadataEditor() {
