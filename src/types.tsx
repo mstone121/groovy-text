@@ -30,7 +30,7 @@ export type ActionWithPayload =
 	| { type: Action.MOVE_LAYER; payload: { fromIndex: number; toIndex: number } }
 	| {
 			type: Action.UPDATE_LAYER;
-			payload: { id: string; updates: Partial<Layer> };
+			payload: { id: string; update: Partial<Layer> };
 	  }
 	| { type: Action.SET_BACKGROUND_COLOR; payload: Color }
 	| { type: Action.SET_FONT; payload: string }

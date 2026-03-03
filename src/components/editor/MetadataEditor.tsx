@@ -1,4 +1,4 @@
-import { Stack, TextField, TextFieldProps } from "@mui/material";
+import { Stack, TextField, type TextFieldProps } from "@mui/material";
 
 import { useAppDispatch, useAppState } from "../../context";
 

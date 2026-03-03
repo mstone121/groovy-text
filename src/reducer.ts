@@ -35,7 +35,7 @@ export default function appReducer(
         ...state,
         layers: state.layers.map((layer) =>
           layer.id === action.payload.id
-            ? { ...layer, ...action.payload.updates }
+            ? { ...layer, ...action.payload.update }
             : layer,
         ),
       };
