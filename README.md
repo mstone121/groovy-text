@@ -10,3 +10,4 @@ To Dos:
 - Import Colors
 - Export PNG (SVG?)
 - Multi-edit
+- Fix mobile UI (don't use vh...)
