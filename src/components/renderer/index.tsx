@@ -1,6 +1,7 @@
 import { useAppState } from "../../context";
 
 import RenderLayer from "./RenderLayer";
+import { BaseText } from "./BaseText";
 
 import type { Layer } from "../../types";
 
@@ -28,6 +29,8 @@ export default function Renderer() {
 			{layersWithCumulativeThickness.map((layer) => (
 				<RenderLayer key={layer.id} layer={layer} />
 			))}
+
+			<BaseText />
 		</div>
 	);
 }
