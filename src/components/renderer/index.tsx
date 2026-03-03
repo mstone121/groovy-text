@@ -39,6 +39,6 @@ const getCumulativeThickness = (
 ) => ({
 	...layer,
 	cumulativeThickness: layers
-		.slice(index)
+		.slice(0, index + 1)
 		.reduce((sum, layer) => sum + layer.thickness, 0),
 });
