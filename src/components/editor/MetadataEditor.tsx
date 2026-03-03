@@ -9,6 +9,7 @@ import { Action, type Metadata } from "../../types";
 const COMMON_INPUT_PROPS: TextFieldProps = {
 	size: "small",
 	style: { minWidth: 275 },
+	fullWidth: true,
 };
 
 export default function MetadataEditor() {
@@ -84,7 +85,7 @@ export default function MetadataEditor() {
 			alignItems="center"
 		>
 			{Fields.map((field) => (
-				<Grid key={field.props.key} size={{ xs: 12, md: 6, lg: 4 }}>
+				<Grid key={field.props.key} size={{ xs: 12, sm: 6, lg: 4 }}>
 					{field}
 				</Grid>
 			))}
