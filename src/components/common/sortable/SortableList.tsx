@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import {
 	DndContext,
 	closestCenter,
@@ -12,28 +14,20 @@ import {
 import {
 	SortableContext,
 	sortableKeyboardCoordinates,
-	useSortable,
 	verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
-import { CSS } from "@dnd-kit/utilities";
-
-export default function SortableItems({
+export default function SortableList({
 	ids,
 	onMoveLayer,
-	renderItem,
+	children,
 }: {
 	ids: UniqueIdentifier[];
 	onMoveLayer: (fromIndex: number, toIndex: number) => void;
-	renderItem: (id: UniqueIdentifier) => React.ReactNode;
+	children: ReactNode;
 }) {
 	const sensors = useSensors(
-		useSensor(PointerSensor, {
-			activationConstraint: {
-				distance: 5,
-				delay: 100,
-			},
-		}),
+		useSensor(PointerSensor),
 		useSensor(KeyboardSensor, {
 			coordinateGetter: sortableKeyboardCoordinates,
 		}),
@@ -46,11 +40,7 @@ export default function SortableItems({
 			onDragEnd={handleDragEnd}
 		>
 			<SortableContext items={ids} strategy={verticalListSortingStrategy}>
-				{ids.map((id) => (
-					<SortableItem key={id} id={id}>
-						{renderItem(id)}
-					</SortableItem>
-				))}
+				{children}
 			</SortableContext>
 		</DndContext>
 	);
@@ -68,30 +58,3 @@ export default function SortableItems({
 		}
 	}
 }
-
-const SortableItem = ({
-	id,
-	children,
-}: {
-	id: UniqueIdentifier;
-	children: React.ReactNode;
-}) => {
-	const { attributes, listeners, setNodeRef, transform, transition } =
-		useSortable({ id });
-
-	return (
-		<div
-			ref={setNodeRef}
-			style={{
-				transform: CSS.Transform.toString(transform),
-				transition,
-				cursor: "move",
-				touchAction: "none",
-			}}
-			{...attributes}
-			{...listeners}
-		>
-			{children}
-		</div>
-	);
-};

@@ -1,6 +1,6 @@
 import { Button, TextField, type TextFieldProps } from "@mui/material";
 
-import { useAppDispatch, useAppState } from "../../../context";
+import { useAppDispatch } from "../../../context";
 
 import ColorField from "../../common/ColorField";
 
@@ -13,25 +13,19 @@ const COMMON_INPUT_PROPS: TextFieldProps = {
 	style: { minWidth: 120 },
 };
 
-export default function LayerEditor({ id }: { id: string }) {
-	const { layers } = useAppState();
+export default function LayerEditor({ layer }: { layer: Layer }) {
 	const dispatch = useAppDispatch();
-	const layer = layers.find((l) => l.id === id);
-
-	if (!layer) {
-		throw new Error(`Expected: Layer with ID ${id} not found`);
-	}
 
 	const updateLayer = (update: Partial<Layer>) => {
-		dispatch({ type: Action.UPDATE_LAYER, payload: { id, update } });
+		dispatch({ type: Action.UPDATE_LAYER, payload: { id: layer.id, update } });
 	};
 
 	const removeLayer = () => {
-		dispatch({ type: Action.REMOVE_LAYER, payload: id });
+		dispatch({ type: Action.REMOVE_LAYER, payload: layer.id });
 	};
 
 	return (
-		<LayerEditorContainer>
+		<LayerEditorContainer id={layer.id}>
 			<ColorField
 				{...COMMON_INPUT_PROPS}
 				label="Color"

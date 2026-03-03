@@ -2,9 +2,13 @@ import { IconButton, Stack, Box } from "@mui/material";
 
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 
+import SortableDragHandle from "../../common/sortable/SortableDragHandle";
+
 export default function LayerEditorContainer({
+	id,
 	children,
 }: {
+	id: string;
 	children: React.ReactNode;
 }) {
 	return (
@@ -16,9 +20,11 @@ export default function LayerEditorContainer({
 			}}
 		>
 			<Stack direction="row" alignItems="center" gap={1}>
-				<IconButton edge="start">
-					<DragIndicatorIcon />
-				</IconButton>
+				<SortableDragHandle id={id}>
+					<IconButton edge="start">
+						<DragIndicatorIcon />
+					</IconButton>
+				</SortableDragHandle>
 
 				{children}
 			</Stack>
