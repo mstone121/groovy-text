@@ -28,7 +28,12 @@ export default function SortableItems({
 	renderItem: (id: UniqueIdentifier) => React.ReactNode;
 }) {
 	const sensors = useSensors(
-		useSensor(PointerSensor),
+		useSensor(PointerSensor, {
+			activationConstraint: {
+				distance: 5,
+				delay: 100,
+			},
+		}),
 		useSensor(KeyboardSensor, {
 			coordinateGetter: sortableKeyboardCoordinates,
 		}),
