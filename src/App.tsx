@@ -1,5 +1,5 @@
 import { type ReactNode, useReducer } from "react";
-import { AppBar, Container, CssBaseline } from "@mui/material";
+import { AppBar, Container, CssBaseline, Grid } from "@mui/material";
 
 import Theme from "./Theme";
 
@@ -11,7 +11,8 @@ import {
 
 import appReducer from "./reducer";
 
-import Editor from "./components/editor";
+import MetadataEditor from "./components/editor/MetadataEditor";
+import LayersList from "./components/editor/layers/LayersList";
 import Renderer from "./components/renderer";
 
 function App() {
@@ -26,8 +27,19 @@ function App() {
 			</AppBar>
 			<Container maxWidth="md" sx={{ marginTop: 4 }}>
 				<AppContext>
-					<Editor />
-					<Renderer />
+					<Grid container spacing={4}>
+						<Grid size={{ xs: 12 }}>
+							<MetadataEditor />
+						</Grid>
+
+						<Grid size={{ xs: 12, md: 6 }}>
+							<LayersList />
+						</Grid>
+
+						<Grid size={{ xs: 12, md: 6 }}>
+							<Renderer />
+						</Grid>
+					</Grid>
 				</AppContext>
 			</Container>
 		</Theme>

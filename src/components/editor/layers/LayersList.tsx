@@ -6,7 +6,7 @@ import LayersContainer from "./LayersContainer";
 import LayerEditor from "./LayerEditor";
 import AddLayerButton from "./AddLayerButton";
 
-export default function LayersEditor() {
+export default function LayersList() {
 	const { layers } = useAppState();
 
 	return (
