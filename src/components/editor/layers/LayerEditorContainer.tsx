@@ -21,7 +21,7 @@ export default function LayerEditorContainer({
 		>
 			<Stack direction="row" alignItems="center" gap={1}>
 				<SortableDragHandle id={id}>
-					<IconButton edge="start">
+					<IconButton edge="start" style={{ cursor: "inherit" }}>
 						<DragIndicatorIcon />
 					</IconButton>
 				</SortableDragHandle>
