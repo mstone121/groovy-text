@@ -11,8 +11,7 @@ export default function SortableContainer({
 	id: UniqueIdentifier;
 	children: React.ReactNode;
 }) {
-	const { attributes, listeners, setNodeRef, transform, transition } =
-		useSortable({ id });
+	const { attributes, setNodeRef, transform, transition } = useSortable({ id });
 
 	return (
 		<div
@@ -20,11 +19,8 @@ export default function SortableContainer({
 			style={{
 				transform: CSS.Transform.toString(transform),
 				transition,
-				cursor: "move",
-				touchAction: "none",
 			}}
 			{...attributes}
-			{...listeners}
 		>
 			{children}
 		</div>
